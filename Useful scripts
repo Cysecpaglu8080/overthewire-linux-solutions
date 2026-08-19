@@ -1,0 +1,23 @@
+This contains useful scripts that help you save passwords by entering 
+the level number and the password
+
+These scripts were written soleely by me using this as reference bash scripting by 'yousuckatprogramming'.
+[use chmod +x] to execute the following scripts.
+
+I.Password filler:
+
+#!/bin/bash
+
+read -p "enter the number that the file file must be named" number
+read -p "give me the password" content 
+
+echo $content >> ./bandit$number
+
+II.SSH Filler:
+
+#!/bin/bash
+
+read -p "enter the number that the file file must be named" number
+read -p "give me the password" content 
+
+echo $content >> ./bandit$number
