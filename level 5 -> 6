@@ -1,0 +1,6 @@
+searching for the general syntax for the find command is sufficient to solve this level.
+Using chat gpt or claude to consolidate the command is good too.
+
+Command : find ./ -size 1033c ! -executable
+
+Thank you.
