@@ -1,0 +1,10 @@
+change directory (cd) use this command to change into the inhere directory.
+then use ls -a to list all files in the current directory including hidden files.
+if any file starts with '.' it is considered as a hidden file.
+
+after revealing the hidden file it is pretty straightforward to get the content.
+
+" cat ...Hiding-From-You " 
+would reveal the password.
+
+Thank you.
