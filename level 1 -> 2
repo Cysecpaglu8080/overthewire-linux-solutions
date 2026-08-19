@@ -1,0 +1,16 @@
+The file containing the password to the next level is in the home Dir.
+But it is named '-' which makes it hard to just 'cat' the file because - is used to indicate 
+options in linux.
+
+It is important to specify the relative path to get the contents.
+
+in linux: 
+. -> represents the current dir.
+.. -> represents the dir above the current one(Parent dir of current dir).
+./ -> inside of the current dir.
+
+cat ./- yeild us the password but cat ./ - becuase the latter would be interpreted as an option 
+inside of the current dir (options for cat).
+
+
+
