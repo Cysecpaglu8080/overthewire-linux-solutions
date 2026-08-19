@@ -1,0 +1,15 @@
+TIP : google "how to handle whitespaced files in linux".
+
+The same concept of relative path can be used to solve this level 
+but simply 'cat ./--spaces in this filename--' won't work here. 
+
+There are multiple solutions to this level which are:
+I:
+    cat ./"spaces in this filename--" or cat "./spaces in this filename--"
+II:
+    cat ./--(hit tab it will auto-fill in the right format (i.e III))
+III:
+    cat ./--spaces\ in\ this\ filename--
+
+Any of these commands will yeild the password to this level
+Thank you.
