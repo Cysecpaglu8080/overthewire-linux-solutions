@@ -1,0 +1,8 @@
+This level wants us to use the file command which outputs the type of file in a current dir.
+
+One hint given to us is that the file conatining password is the only file that is human-readable
+i.e ASCII text.
+
+file ./-* helps us identify that file and we cant extract it from there.
+
+Thank you.
