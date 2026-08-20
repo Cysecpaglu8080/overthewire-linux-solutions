@@ -1,0 +1,25 @@
+Goal:
+To retrive password for the next level by submitting current level's password  on the localhost 
+at portnumber 30000.
+
+Connect:
+use the ssh filler script that I had provided to login.
+
+Approach:
+To use the telenet to connect to local host using the port that was provided
+
+Command:
+telnet localhost 30000
+and submit the password
+
+Breakdown:
+we use telnet to connect to localhost on the specified port to submit the current level's 
+password to receive password for the next level.
+
+Result:
+We receive the password for the next level with a 'Correct!' message. 
+This room required me to use the networking knowledge to complete it.
+
+Thank you!
+
+Key Takeaway:
