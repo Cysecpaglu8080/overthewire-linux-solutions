@@ -1,0 +1,22 @@
+[This is a difficult level]
+Goal:
+To reverse the hexdump file, uncompress the file and extract the 
+password.
+
+Approach:
+First step would be to create a temp dir to work
+Then I would be to copy the file into that dir.
+Convert the hexdump to binray using the xxd utility.
+Then use the file command to find the compressing format
+
+Command:
+This is a really big lesson i would recommend a yt video for this 
+gzip -d 'file'
+bzip -d 'file'
+this continues till tar then
+tar xf 'file'
+
+Result:
+we get the password in a file that was in a tar archive 
+Key Takeaway:
+files that are compressed using different compression algorithm.
