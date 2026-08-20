@@ -7,4 +7,4 @@ so to locate this file we use the command in the following way
 " find / -user bandit7 -group bandit6 -size 33c 2>/dev/null "
 
 / -> indicates find any file in the entire system with the following attribytes that are specified 
-2>/dev/null -> indiacates that if any error 
+2>/dev/null -> indiacates that if any STDERR(2) is redirected to /dev/null . 
