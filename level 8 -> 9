@@ -1,0 +1,29 @@
+
+Goal:
+The password for the next level is stored in the file data.txt 
+and is the only line of text that occurs only once.
+
+Approach:
+This challenge is a "find the unique line" problem in a file full 
+of duplicate lines. Two core Linux utilities solve it:
+
+ sort   -> arranges lines alphabetically, so identical lines end up 
+            next to each other (required before using uniq).
+ uniq -u -> prints only lines that have no adjacent duplicates, 
+             i.e., lines that occur exactly once.
+
+Command:
+sort data.txt | uniq -u
+
+Breakdown:
+1. sort data.txt   -> sorts all lines so duplicates become adjacent.
+2. | uniq -u        -> filters and prints only the line with no 
+                        duplicates (the unique line = password).
+
+Result:
+The output is a single line, which is the password for level 9.
+
+Key Takeaway:
+uniq only detects duplicates that are adjacent to each other, so 
+sorting first is mandatory. The combo "sort | uniq -u" is a common 
+pattern for finding unique entries in logs, wordlists, or datasets.
