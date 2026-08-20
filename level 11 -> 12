@@ -1,0 +1,23 @@
+Goal:
+The password for this level is ROT13 encoded and stored in a file.
+The problem is that unlike base64 ROT13 is not a built-in function.
+
+Approach:
+A cheat or a simpler way to solve this is to just google ROT13 decoder.
+But a cli approach would be to cat the contents and then decode.
+
+Command:
+cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m'
+
+Breakdown:
+the former part of the command pipe is used to extract the contents of the file.
+The latter part of the command pipe is used to translate according to the ROT13 specifications.
+applies a ROT13 cipher — each letter is shifted 13 places in the alphabet (A→N, B→O, ... N→A, and same pattern for lowercase).
+The result is the decoded (or encoded) text printed to the terminal, since ROT13 is its own inverse.
+
+Result:
+We get the decoded password.
+
+Key Takeaway:
+This room introduced a new type of encoding to me and was fun to first use an online decoder,
+but using the cli to solve this was tough but fun.
