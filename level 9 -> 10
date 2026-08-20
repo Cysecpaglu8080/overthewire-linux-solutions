@@ -1,0 +1,33 @@
+Goal:
+The password for the next level is in the same filename with it being the only human readable 
+string preceded by ' = '.
+
+Approach:
+A brute force way would be to cat the file and grep for the '=' but the file being a data file it 
+is not possible.
+My approach would be to convert it strings somehow and find the command which could do (using google)
+LOL.
+
+Command 
+strings data.txt | grep =
+
+Breakdown
+The command is pretty straightforward, but the first part of the pipe is used to convert the data 
+content into strings and the latter part fo the pipe is used to filter content with only = in them.
+
+Result:
+=KGEn
+cL0========== the
+=<P& 
+========== password
+bU=\
+a7=P
+>========== is
+wbp=
+=lR(
+a=-io
+R========== B0s2khmbT9u0geKuOoVGW3JZK
+
+Key takeaway:
+This level introduced a new command to me which was strings and how it is used to convert data
+into parsable strings.
