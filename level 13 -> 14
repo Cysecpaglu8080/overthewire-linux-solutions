@@ -1,0 +1,30 @@
+Goal:
+To login as bandit14 using the private that is given in bandit13.
+
+Connect:
+ssh -i priv.key bandit14@bandit.labs.overthewire.org -p 2220
+
+Approach:
+First would be to copy that private key to our local system as using that private key to login 
+as bandit14 from localhost is denied.
+chmod 700 must be done because ssh expects any private key file to have very stringent permissions.
+
+Command:
+scp -p 2220 bandit13@bandit.labs.overthewire.org:/home/bandit13/sshkey.private .
+chmod 700 sshkey.private
+ssh -i sshkey.private bandit14@bandit.labs.overthewire.org -p 2220
+cat /etc/bandit_pass/bandit14
+
+Breakdown:
+Copy key: scp copies the private key from bandit13 to your local machine.
+Permissions: chmod 700 secures the private key so SSH accepts it.
+Login: ssh -i sshkey.private uses the private key to authenticate as bandit14.
+Password: cat /etc/bandit_pass/bandit14 displays Bandit 14's password.
+
+Result:
+Successfully copied the private key and used it to log in as bandit14.
+Retrieved the Bandit 14 password from /etc/bandit_pass/bandit14.
+
+Key Takeaway:
+Private SSH keys enable passwordless authentication when correctly configured.
+Correct file permissions are essential for SSH to accept a private key.
