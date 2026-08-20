@@ -1,0 +1,18 @@
+This level is solved using 'grep' which used as a tool to
+search for specific words, phrases, or text patterns.
+
+There are two ways to solve this:
+
+I. Extract file contents and grep upon it:
+
+    this method would first get the contents of a file pipe(|) into grep with the  keyword that
+    is to be searched.
+
+    COMMAND: cat data.txt | grep millionth
+
+II. Direct use of grep to get password:
+
+    This method is the most efficient way as grep can get content of file and passing the search 
+    parameter with the file refernce is the most effective way to solve this level.
+
+    COMMAND: grep millionth data.txt
