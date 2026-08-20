@@ -1,0 +1,22 @@
+Goal:
+The password is base64 encoded and stored in a file in the home directory.
+
+Approach:
+My personal approach was to check the man page for base64 and see if there were any options that 
+were there for decoding.
+
+Command:
+base64 -d data.txt
+
+Breakdown:
+base64 is a pre installed utility so the command is pretty straightforward.
+We use base64 in the decode mode using the -d option and as the argument we specify the file we
+want to decode.
+
+Result:
+" The password is pYfOY6HwUsDj5rL9U " it is not the complete password XD.
+
+Key Takeaway:
+base64 encoding and decoding was an interesting topic to study upon because of this room/level.
+
+(ok i like to call these rooms instead of levels)
