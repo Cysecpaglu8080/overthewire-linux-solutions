@@ -1,0 +1,43 @@
+Goal:
+The goal is to find which ports are open by usnig nmap and use the current level 
+password to retrive the ssh private key for the next level.
+
+Connect:
+ssh bandit16@bandit.labs.overthewire.org -p 2220
+
+Approach:
+First thing would be to use nmap on the port range that they have specified to 
+understand what services are working on what port.
+
+Using the -sV option we can see that some ports in that range are just echo 
+services which just echo what we input.
+
+with a alittle trial and error we can get the password on port 31790.
+
+Command:
+
+nmap -sV -p 31000-32000 localhost
+openssl s_client --connect localhost:31790
+(or)
+ncat -ssl localhost 31790
+
+Breakdown:
+
+The first nmap command is used to identify what services are 
+running on the the range of port specified.
+
+There are two command that can be used to perform the 
+same operation both connect to localhost on the port specified.
+
+Result:
+
+The password is revealed by entering the current password on the right port 
+in localhost which is (127.0.0.1) in IPv4 notation.
+
+Key Takeaway:
+
+As I had basics of networking and nmap the port scanning part of this room was
+the easiest part of the room for me.
+
+The openssl part of the room was also easy as it was pretty standard from the
+prev rooms.
