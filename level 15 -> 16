@@ -1,0 +1,37 @@
+Goal:
+To extract the password for this level by submitting current level's password to
+port 30001 on localhost using SSL/TLS encryption.
+
+Connect:
+use the script in the useful scripts to autofill
+
+Approach:
+I started by googling what is the command that is used to send request using the
+SSL/TLS encryption. which led me to openssl which was also mentioned in the 
+useful commands.
+
+I tried a brute force way to 'man openssl | grep CONNECTED COMMANDS' this yeilded 
+ntg significant.
+
+Then i tried to brute force the openssl command whose error message prompted me to
+search and specify a command that is used to encrypt the connection. 
+
+Command:
+openssl s_client -connect localhost:30001
+
+Breakdown:
+The general syntax for openssl is:
+
+openssl cmd [option] destination 
+
+Result:
+After succesful connection we are prompted to enter the password of the current level
+which revealed the answer for the next level. 
+
+Key Takeaway:
+This was a really mindbreaking room for me to figure out whichcommand to use 
+with the correct corresponding option.
+This room gave a very hands-on approach to the modern day SSL/TLS HTTPS protocol 
+that was only theoretical knowledge to me before.
+
+Thank you,
