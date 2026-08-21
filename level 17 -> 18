@@ -1,0 +1,26 @@
+Goal:
+There are two files in the room that have only a single line
+that has been changed and a new command is introduced to solve this level.
+
+Connect:
+[Use the script T-T]
+
+Approach:
+This room is fairly simple which is to use the new command 
+
+Command:
+diff password.old password.new
+
+Breakdown:
+By using this format of the .old file and the .new file the output
+is in a way that it shows what the line was before and what it changed to.
+
+Result:
+< icUh23IUytZLIYhcCaXL18agiSIqymBc
+---
+> OQxXZjELndr90zuhOTDYBEomI0SZITXI
+The arrow shows that the first line is changed to the following using the
+diff command.
+
+Key Takeaway:
+A new command diff was introduced that I was completely unaware of.
