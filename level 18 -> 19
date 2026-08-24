@@ -1,0 +1,35 @@
+Goal:
+To bypass the .bashrc file that is on the level that automatically disconnects us because shell
+for the next level is not /bin/bash.
+
+Connect:
+ssh -T bandit18@bandit.labs.overthewire.org -p2220
+
+Approach:
+So, according to this room the .bashrc file is configured in such a way that if we spawn an interactive
+shell we are kicked out immediately.
+
+I googled these exact words to figure this out "How to bypass the .bashrc file"
+
+There are multiple ways to solve this room one obvious way was to remove the file itself by
+"ssh -t user@host "rm -rf .bashrc"" -> yeilded permission denied instead of exit.
+
+
+Command:
+*{ssh -T user@host port}*
+this is used to launch the next level without an interactive terminal.
+
+*{ssh -t user@host port /bin/sh}*
+(sh,dash) these are the two shells that work with experimenting by me.
+The -t is used to specify a particular shell to launch as the user at host.
+
+Breakdown:
+both the options that were used in conjuction to are nearly identical one indicates that we don't
+wish to spawn any terminal(-T) while the other specifies as to which terminal we want to use.
+
+Result:
+We are able to login as user at host without an interactive terminal and extract the password from
+the home dir successfully
+
+Key Takeaway:
+This room showcased the importance of knowledge about sheels/terminals (both are not the same thing).
