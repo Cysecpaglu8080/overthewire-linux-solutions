@@ -1,0 +1,31 @@
+Goal:
+The setuid binary in the home directory can be used to read the password for the next level. 
+
+Connect:
+ssh bandit19@bandit.labs.overthewire.org -p 2220
+
+Approach:
+. The setuid file that is provided to us also has executable permissions which means we can execute
+  that file.
+. Once I executed that file without any parameters it prompted the syntax for the file.
+. From this prompt i understood this is an executable file which performs commands as the 
+  user bandit20.
+. After this knowledge it was easy to get the password for the next level as the location of the 
+  file containing the password was informed to us.
+
+Command:
+./bandit20-do cat /etc/bandit_pass/bandit20
+
+Breakdown:
+./bandit20-do -> The realtive path indicates that execute the file in the current dir.
+cat /etc/bandit_pass/bandit20 -> This is the command that we want the executable file to perform
+                                  which is to extract the content of that file which contains the 
+                                  password for the next level.
+
+Result:
+We are granted the password upon this command's execution.
+
+Key Takeaway:
+This room introduced me to setuid files, which run with the permissions of the file's 
+owner rather than the user executing it. In this case, the owner is bandit20, so the binary 
+runs any command as bandit20 regardless of who invokes it.
