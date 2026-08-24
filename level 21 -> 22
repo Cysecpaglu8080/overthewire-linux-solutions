@@ -1,0 +1,24 @@
+Goal:
+To view the cronjobs that are in the dir that they have specified and extract the password.
+
+Connect:
+ssh user@host -port
+
+Approach:
+. First would be to check the cronjob details that is in the dir they provided.
+. Upon checking the dir and the cronjib corresponding to the level i found out that there was a 
+  file that was automated.
+. Veiwing what that file was executing i noticed that it was sending the password of the next 
+  levl into another file.
+. Revealing the password was easy after this information.
+Command:
+cd /etc/cron.d
+cat cronjob_bandit22
+cat /usr/bin/cronjob_bandit22.sh
+cat /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv
+
+Result:
+The password was revealed in the tmp directory inside of a file whose permission were modified.
+
+Key-takeaway:
+Introduction to cronjob and crontabs.
