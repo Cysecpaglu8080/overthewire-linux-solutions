@@ -1,0 +1,29 @@
+Goal:
+To obtain the password by setting up a listener on port with the current level's password and then
+using the setuid file given to us and specifying the port to retrive the password.
+
+Connect:
+ssh user@host port
+
+Approach:
+. The first step was to know if there was any port that existed that was listening for connection 
+  from the setuid file.
+. Unfortunately there wasn't any so i had set one up mannually which was to echo the current level 
+  password into a netcat listener at a specified port.
+.  Then use the setuid file with the port that we just specified and obtain the password.
+
+Command:
+echo 'password' | nc -lp 4444 &
+./setuid-file 4444
+
+Breakdown:
+. The first command is used to setup a listener on the port 4444 with the current level's password.
+. The next command is used to check the password on that port if they match we get the password for
+  the next level.
+
+Results:
+As the password matched we got the password for the next level.
+
+Key-takeaway:
+Learnt how to setup a netcat listener on a certain port and background it and then access it to
+get the password for the next level.
