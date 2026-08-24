@@ -1,0 +1,39 @@
+Goal:
+A cron job running on the system executes a script as bandit23 that 
+places the password for the next level into a file in /tmp.
+
+Connect:
+ssh bandit22@bandit.labs.overthewire.org -p 2220
+
+Approach:
+. Checked /etc/cron.d/ for scheduled jobs and found one running as bandit23.
+. Read the referenced script to see what it does.
+. The script computes an MD5 hash of a specific string and copies 
+  bandit23's password into a file in /tmp named after that hash.
+. Reproduced the same MD5 hash locally to identify the exact filename, 
+  then read that file.
+
+Command:
+cat /etc/cron.d/cronjob_bandit22
+cat /usr/bin/cronjob_bandit22.sh
+echo I am user bandit23 | md5sum | cut -d ' ' -f 1
+cat /tmp/<resulting_md5_hash>
+
+Breakdown:
+cat /etc/cron.d/cronjob_bandit22        -> shows the cron job runs a script every minute as bandit23
+cat /usr/bin/cronjob_bandit22.sh        -> reveals the script logic: it hashes a string and copies 
+                                            bandit23's password into /tmp using that hash as the filename
+echo ... | md5sum | cut -d ' ' -f 1     -> recreates the same MD5 hash used by the script, giving 
+                                            the exact filename in /tmp
+cat /tmp/<hash>                          -> reads the file, which contains bandit23's password
+
+Result:
+The command outputs bandit23's password, allowing login to the next level.
+
+Key Takeaway:
+Cron jobs running as another user can leak sensitive files if their 
+scripts are world-readable. Inspecting scheduled tasks and the scripts 
+they call can reveal predictable file paths or naming schemes, even 
+when the output itself isn't directly visible.
+
+
