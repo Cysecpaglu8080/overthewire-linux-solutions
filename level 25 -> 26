@@ -1,0 +1,30 @@
+Goal:
+The goal is to retrive the ssh private key for bandit26 using the scp command.
+
+Connect:
+ssh user@host -port
+
+Approach:
+. One part that confused me was remote-to-local and the vice-versa. [istg im not dumb :-( ]
+. The command for the remote to local was pretty straightforward.
+
+Command:
+I. Remote → Local:
+  scp username@remote_ip:/path/to/remote/file /path/to/local/destination
+
+II. Local → Remote:
+  scp /path/to/local/file username@remote_ip:/path/to/remote/destination
+
+chmod 700 priv.key 
+(This is very important as the ssh expects the private key to have strict permissions)
+
+Breakdown:
+The only important part is to set the permissoins for the private key file the syntax is easy
+to interpret. we are connecting to a remote host and using the ssh protocol to copy the file 
+onto our system.
+
+Results:
+I got the password after copying the private key.
+
+Key-takeaway:
+Learnt scp command and permissions settings for private.key file for ssh.
