@@ -1,0 +1,45 @@
+Goal:
+To extract the password from a cronjob which is a timebased task scheduler.
+
+Connect:
+ssh user@host -port
+
+Approach:
+. This level was a little tricky without knowing Bash scripting, but after analysing the script 
+  with my favourite LLM and getting some help  from yousuckatprogramming 
+  (godsend guy fr), I understood the logic.
+. The script first checks whether the target directory exists using `cd`. If `cd` fails, the `||
+  exit` causes the script to terminate immediately.
+. It then iterates through the files in the directory using `*` and `.*`, which also includes 
+  hidden files. It skips `.` and `..` and checks whether the entries meet certain conditions.
+. If the conditions are satisfied, the script executes the file and then deletes it. 
+  The important part is that the cron job runs this process as `bandit24`.
+. I placed my own executable script in the directory, which gets executed by the cron job as 
+  `bandit24`. This means my script runs with `bandit24`'s privileges.
+. My script reads `/etc/bandit_pass/bandit24` and writes the password somewhere I can access. 
+  This works because the script is executed with `bandit24`'s permissions.
+. The key vulnerability is that I can control a file that is automatically executed by a higher-privileged user. 
+  This results in a privilege escalation through a misconfigured cron job.
+
+Script:
+#!/bin/bash #change shebang according to you
+
+cat /etc/bandit_pass/bandit24 > /tmp/temp/something
+
+Command:
+chmod +x script
+chmod 777 .
+cp script /var/spool/bandit24/foo/
+ls
+
+Breakdown:
+. I first give the file executable permission and then read,write,execute permission for the 
+  current dir to get the file that we specify in the in the script.
+. Then i transfer the file into the specified dir so that it can be executed and give me the
+  password.
+
+Results:
+I got the password from the script that i had created.
+
+Key-takeaway:
+Scripting skills and knowledge was learnt from this level; Thank you.
