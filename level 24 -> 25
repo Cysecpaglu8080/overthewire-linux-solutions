@@ -1,0 +1,40 @@
+Goal:
+To retrive password from a port listening on localhost which gives us the password for the
+next level.
+
+Connect:
+ssh user@host -port
+
+Approach:
+. My first challenge was how to send any inputs to the listening port on localhost which is where
+  netcat came in handy.
+. After connecting and being able to send inputs to the port, next challenge was how to send 
+  password with number because brute-forcing 10000 passwords mannually is too tiresome.
+. Here scripting skills from the prev lesson/room came in handy.
+. After nailing the logic behind on how to send inputs to that port on localhost it was esasy to
+  retrive the password.
+
+Script:
+nano script.sh;chmod +x script.sh
+
+#!/bin/bash
+
+for i in {0..10000};do
+        echo "hVQMk3lJNsmQ7VF3ubyrNNBom7BOgVXv $i"
+done|nc localhost 30002
+
+Command:
+./script.sh
+
+Breakdown:
+The script tries all the 10000 combinations as a brute force attacker on that port and 
+extracts the password for us.
+
+Results:
+We get the password from a brute force attack on the specified port.
+
+Keytakeaway:
+. This is a low weight and good to way to pratically demonstrate what a brute-force attack
+  could look like.
+. This demonstrates why a secure password is required and the importance to rotate that 
+  frequently.
