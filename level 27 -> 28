@@ -1,0 +1,31 @@
+Goal:
+. The goal is to clone the git repo and extract the password.
+
+Connect:
+. ssh://bandit27-git@bandit.labs.overthewire.org:2220/home/bandit27-git/repo
+
+Approach:
+. The first step was to clone the repo using 'git clone'.
+. After an unsuccesful attempt to just use git clone to clone this
+  repo i figured that i did not specify the port.
+. A quick google search later i found out how to specify the port,
+  after which this room was very easy.
+
+Command:
+. git clone ssh://bandit27-git@bandit.labs.overthewire.org:2220/home/bandit27-git/repo
+
+Breakdown:
+. git clone is a Git command used to create a local copy of a remote Git 
+  repository.
+. The SSH URL specifies the username, remote host, port (2220), 
+  and path to the repository.
+
+Results:
+. There is a README file that we can extract the content of to
+  get the password.
+
+Key-takeaway:
+. Learned how to clone a remote Git repository using the Git CLI.
+. Learned how to specify a custom SSH port when connecting to a remote 
+  Git repository.
+. Became more familiar with basic Git commands and repository structure.
