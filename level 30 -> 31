@@ -1,0 +1,27 @@
+Goal:
+. To retrive the password from a remote repo by cloning to local system.
+
+Connect:
+. ssh://bandit30-git@bandit.labs.overthewire.org/home/bandit30-git/repo
+
+Approach:
+. I tried to use git branch in hopes that it would be straightforward.
+. Then I noticed a pattern in the documentation that was attached with this
+  room.
+. The pattern is that each room related to git follows the same heirarchial 
+  structure that is mentioned in it, first we used branch to solve the previous 
+  room and now according to this I had to use the tag command in git to solve
+  this room.
+
+Command:
+. git tag 
+. git show secret
+
+Breakdown:
+. By following the finding higlighted in the appproach section i was able to 
+  reveal the 'secret' tag.
+. Using the show command retrive the password in the tag/
+
+Results:
+. Password was obtained by using the tag command to reveal a secret tag and
+  show was used to retrive the password.
