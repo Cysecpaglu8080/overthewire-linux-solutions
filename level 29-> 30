@@ -1,0 +1,29 @@
+Goal:
+. To retrive the password by cloning a remote repo onto our local system.
+
+Connect:
+. ssh://bandit29-git@bandit.labs.overthewire.org:2220/home/bandit29-git/repo
+
+Approach:
+. The attached link in the level named 'Git from the Bottom Up' gave me a clue
+  as they do not link any unecessary material to a level.
+. Checking all the provided feilds in the link i was able to find a dev branch
+  and by the hint in the README file which laid emphasis on 'production'. This 
+  was a hueristic i made and it was fruitful.
+. upon the use of the command that i will provide i was able to reveal the 
+  password that was located in that branch.
+
+Command:
+. git branch -a
+. git show remotes/origin/dev 
+
+Breakdown:
+. The first command is used to view all the branches that are assosiated
+  with this repo, to reveal all the branches (including the hidden ones) I
+  had to make use of the -a option.
+. This led me to find a dev branch which contatined the password.
+Results:
+. I was able to retrive the password forma a hidden branch.
+
+Key Takeaway:
+. git branches and the importance to sanitise a repo before going to prod.
