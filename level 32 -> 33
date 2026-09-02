@@ -1,0 +1,35 @@
+Goal:
+. To retrieve the password for the next level by escaping the
+  uppercase-only shell.
+
+Connect:
+. ssh [bandit32@bandit.labs.overthewire.org](mailto:bandit32@bandit.labs.overthewire.org) -p 2220
+
+Approach:
+. After logging in, I noticed that the shell converted every command I
+  entered into uppercase, which prevented normal Linux commands from working.
+. I realized that the shell was restricting the commands by converting
+  lowercase input to uppercase.
+. I used '$0' to start a new shell, which allowed me to escape the
+  restricted shell and execute normal commands.
+. I then used 'cat' to read the password file for the next level.
+
+Command:
+. $0
+. cat /etc/bandit_pass/bandit33
+
+Breakdown:
+. '$0' refers to the name of the currently running shell and can be used
+  to start another shell from within the restricted environment.
+. Once the new shell was started, the uppercase restriction was bypassed.
+. 'cat /etc/bandit_pass/bandit33' displays the password for Bandit 33.
+
+Result:
+. I successfully escaped the uppercase-only shell and retrieved the
+password for Bandit 33.
+
+Key takeaway:
+. Restricted shells may limit normal command execution, but understanding
+  how the shell works can reveal ways to escape those restrictions.
+. '$0' can be used to invoke the current shell and, in this level, escape
+  the uppercase-only restriction.
