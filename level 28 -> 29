@@ -1,0 +1,26 @@
+Goal:
+. The goal is to clone the Git repository and extract the password.
+
+Connect:
+. ssh://bandit28-git@bandit.labs.overthewire.org/home/bandit28-git/repo 
+
+Approach:
+. After cloning the repo onto local system.
+. The README file it has a redacted password for the next level.
+. Checking the commit logs I was able to find a commit containing the password. 
+
+Command:
+. git log
+. git show e2e1de5396037bafb23e9bb37c12ebea9b911cfd 
+  {this is the commit that has un-redacted password}
+
+Breakdown:
+. The first commmand was used to show the commit history with it's comments.
+. Then the next command is  used to view the changes that were made in the 
+  commit. 
+Results:
+. I was able to retrive the password from a previous commit containing 
+  the passwrd.
+Key Takeaway:
+. This room showcased the actual use case of git and why it is used for which
+  is version control.
