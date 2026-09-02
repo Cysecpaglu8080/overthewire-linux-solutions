@@ -1,0 +1,36 @@
+Goal:
+. To retrive the password by pushing a repo to branch 'main'.
+
+Connect:
+. ssh://bandit31-git@bandit.labs.overthewire.org/home/bandit31-git/repo
+
+Approach:
+. The instructions were pretty straight-forward which is to push a file by 
+  creating it with the instruction given.
+. After the creation of the file when I tried to push the file using 'push' 
+  command i was prompted saying the .gitignore file did not allow the particular
+  file to be pushed.
+. I removed the gitignore file and the room was solved by pushing the file.
+
+Command:
+. echo 'May I come in?' > key.txt
+. rm .gitignore
+. git add .
+. git commit -m "new"
+. git push
+
+Breakdown:
+. 'echo' creates the key.txt file and writes the required text into it.
+. 'rm .gitignore' removes the rule that was causing key.txt to be ignored.
+. 'git add .' stages the newly created file for the commit.
+. 'git commit -m "new"' creates a commit containing the staged changes.
+. 'git push' pushes the commit to the remote repository's main branch.
+
+Result:
+. The key.txt file was successfully pushed to the main branch, and the server
+  responded with the password for the next level.
+
+Key takeaway:
+. Git uses the .gitignore file to specify files that should not be tracked.
+. To push a file to a specific branch, the basic command is
+  'git push origin <branch-name>'.
